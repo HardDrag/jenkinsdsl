@@ -3,7 +3,7 @@
  }
 
 pipeline {
-    agent
+    agent none
     stages {
         stage('Demo') {
             agent { label 'kube-agent' }
