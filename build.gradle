@@ -45,3 +45,14 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+sourceSets {
+    main {
+        groovy {
+            srcDirs = ['src','vars']
+        }
+        resources {
+            srcDirs = ['resources']
+        }
+    }
+}
