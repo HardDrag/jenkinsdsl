@@ -1,7 +1,7 @@
 def call(Map conf) {
     node {
         stage('Get source code') {
-            git url: "https://github.com/spring-projects/spring-petclinic.git"
+            checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]])
         }
         stage('Build') {
             sh 'mvn package -DskipTests'
