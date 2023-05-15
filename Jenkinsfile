@@ -1,5 +1,5 @@
  libraries {
-     lib('dsl')
+     dsl('pipelineMaven')
  }
 
 pipeline {
