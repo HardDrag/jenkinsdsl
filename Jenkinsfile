@@ -1,9 +1,12 @@
-@Library('my-shared-library') _
+ libraries {
+     lib('dsl')
+ }
 
 pipeline {
-    agent any
+    agent
     stages {
         stage('Demo') {
+            agent { label 'kube-agent' }
             steps {
                 pipelineMaven name: 'git'
             }
