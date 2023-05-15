@@ -1,5 +1,5 @@
 def call(Map conf) {
-    node('master') {
+    node {
         stage('Get source code') {
             git url: "https://github.com/spring-projects/spring-petclinic.git"
         }
