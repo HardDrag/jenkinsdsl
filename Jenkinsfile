@@ -6,7 +6,7 @@ pipeline {
         stage('Demo') {
             agent { label 'java-agent' }
             steps {
-                pipelineMaven name: 'git'
+                pipelineMaven{initTests: 0, initInstall: 0}{'test'} 
             }
         }
     }
