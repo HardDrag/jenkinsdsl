@@ -1,4 +1,4 @@
-library 'dsl@master'
+library 'dsl'
 
 pipeline {
     agent none
