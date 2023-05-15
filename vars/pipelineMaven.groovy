@@ -1,4 +1,4 @@
-def call(Map conf, Closure body) {
+def call(Map conf) {
     node {
         stage('Get source code') {
             checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]])
@@ -23,7 +23,7 @@ def call(Map conf, Closure body) {
     }
 }
 
-def call(Map conf, String label, Closure body) {
+def call(Map conf, String label) {
     node {
         wrap([$class: 'TimestamperBuildWrapper']) {
             stage('Get source code') {
