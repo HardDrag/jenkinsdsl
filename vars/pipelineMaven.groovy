@@ -45,7 +45,7 @@ def call(Map conf, String label) {
                 {
                     echo '\033[32m' + 'Testing...'
                 }
-                if(initTest == 1) {
+                if(conf.initTest == 1) {
                     sh 'mvn verify'
                 } else {
                     echo 'Tests skipped'
@@ -56,7 +56,7 @@ def call(Map conf, String label) {
                 {
                     echo '\033[32m' + 'Installing...'
                 }
-                if(initInstall == 1) {
+                if(conf.initInstall == 1) {
                     sh 'mvn install -DskipTests'
                 } else {
                     echo 'Installation skipped'
