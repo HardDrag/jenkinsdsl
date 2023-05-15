@@ -1,6 +1,4 @@
- libraries {
-     dsl('pipelineMaven')
- }
+@Library('dsl')
 
 pipeline {
     agent none
