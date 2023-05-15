@@ -1,6 +1,4 @@
- libraries {
-     lib('dsl')
- }
+@Library('my-shared-library') _
 
 pipeline {
     agent any

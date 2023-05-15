@@ -1,4 +1,4 @@
-def pipelineMaven(Map conf) {
+def call(Map conf) {
     node {
         stage('Get source code') {
             git url: "https://github.com/spring-projects/spring-petclinic.git"
