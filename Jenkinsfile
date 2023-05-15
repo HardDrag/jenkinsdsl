@@ -4,7 +4,7 @@ pipeline {
     agent none
     stages {
         stage('Demo') {
-            agent { label 'kube-agent' }
+            agent { label 'java-agent' }
             steps {
                 pipelineMaven name: 'git'
             }
