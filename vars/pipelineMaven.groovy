@@ -20,6 +20,11 @@ def call(Map conf) {
                 echo 'Installation skipped'
             }
         }
+        post {
+            always {
+                junit 'build/reports/**/*.xml'
+            }
+        }
     }
 }
 
@@ -68,6 +73,11 @@ def call(Map conf, String label) {
                     echo '\033[32m' + 'Cleaning up...'
                 }
                 cleanWs()
+            }
+            post {
+                always {
+                    junit 'build/reports/**/*.xml'
+                }
             }
         }
     }
