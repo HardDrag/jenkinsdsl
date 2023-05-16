@@ -9,7 +9,7 @@ def call(Map conf) {
         stage('Test') {
             if(conf.initTests == '1') {
                 sh 'mvn verify'
-                junit 'test-results.xml'
+                junit 'target/surefire-reports/*.xml'
             } else {
                 echo 'Tests skipped'
             }
@@ -48,7 +48,7 @@ def call(Map conf, String label) {
                 }
                 if(conf.initTests == '1') {
                     sh 'mvn verify'
-                    junit 'test-results.xml'
+                    junit 'target/surefire-reports/*.xml'
                 } else {
                     echo 'Tests skipped'
                 }
