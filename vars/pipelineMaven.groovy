@@ -9,6 +9,7 @@ def call(Map conf) {
         stage('Test') {
             if(conf.initTest == 1) {
                 sh 'mvn verify'
+                junit 'test-results.xml'
             } else {
                 echo 'Tests skipped'
             }
