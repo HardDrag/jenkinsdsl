@@ -7,7 +7,7 @@ def call(Map conf) {
             sh 'mvn package -DskipTests'
         }
         stage('Test') {
-            if(conf.initTest == '1') {
+            if(conf.initTests == '1') {
                 sh 'mvn verify'
                 junit 'test-results.xml'
             } else {
@@ -46,7 +46,7 @@ def call(Map conf, String label) {
                 {
                     echo '\033[32m' + 'Testing...'
                 }
-                if(conf.initTest == '1') {
+                if(conf.initTests == '1') {
                     sh 'mvn verify'
                 } else {
                     echo 'Tests skipped'
