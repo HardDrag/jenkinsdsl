@@ -48,6 +48,7 @@ def call(Map conf, String label) {
                 }
                 if(conf.initTests == '1') {
                     sh 'mvn verify'
+                    junit 'test-results.xml'
                 } else {
                     echo 'Tests skipped'
                 }
