@@ -1,5 +1,8 @@
 def call(Map conf) {
     node {
+        stage('Get source code') {
+            checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/HardDrag/spring-petclinic.git']]])
+        }
         stage('Build') {
             sh 'mvn package -DskipTests'
         }
@@ -24,6 +27,13 @@ def call(Map conf) {
 def call(Map conf, String label) {
     node {
         wrap([$class: 'TimestamperBuildWrapper']) {
+            stage('Get source code') {
+                ansiColor('xterm')
+                {
+                    echo '\033[32m' + 'Getting source code...'
+                }
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/HardDrag/spring-petclinic.git']]])
+            }
             stage('Build') {
                 ansiColor('xterm')
                 {
